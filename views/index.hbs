@@ -1,0 +1,51 @@
+<h1>Welcome to Express Handlebars</h1>
+<!-- helper -->
+{{! This is my comment }}
+<h1>Today is</h1>
+{{today}}
+
+{{{formatDate date}}}
+
+<!-- if -->
+{{#if user.isLogin}}
+<p>Hello {{name}},</p>
+<p>How is the weather in {{{location}}}?</p>
+{{else}}
+<button>Please Login to view this page</button>
+{{/if}}
+
+<!-- unless -->
+{{#unless user.isLogin}}
+<button>Please Login to view this page</button>
+{{else}}
+<p>Hello {{name}},</p>
+<p>How is the weather in {{{location}}}?</p>
+{{/unless}}
+
+<!-- each -->
+{{#each languages}}
+    {{@index}}. {{this}}<br/>
+{{/each}}
+
+<ol>
+    {{#each languages}}
+    {{../name}}
+    <li>{{this}}</li>
+    {{/each}}
+</ol>
+
+<ul>
+    {{#each links}}
+    <li><a href="{{url}}">{{title}}</a></li>
+    {{/each}}
+</ul>
+
+<!-- with -->
+<h2>User Address</h2>
+{{#with user}}
+    {{#with address}}
+        {{../../name}}
+        {{street}}, {{city}}
+    {{/with}}
+{{/with}}
+
